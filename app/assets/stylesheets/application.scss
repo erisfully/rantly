@@ -14,12 +14,34 @@ body{
   background: #333333;
   text-align: right;
   color: #D3D4D4;
-  }
+  display: flex;
+  padding-left: 0px;
+//  justify-content: flex-end;
+
   .logo {
-    float: left;
+    font-size: 20px;
+    padding: 1em;
+    width: 100%;
+    text-align: left;
   }
   li {
     display: inline;
+    float: right;
+    padding: 1em;
+  }
+
+    .button {
+    border: 1px solid #646464;
+    display: block;
+    padding: 3px 28px;
+    background: #38731F;
+    text-decoration: none;
+    margin: 0 auto;
+    }
+}
+
+a:visited {
+  color: #D3D4D4;
 }
 
 .container {
@@ -34,17 +56,18 @@ body{
     display: flex;
     justify-content: center;
     background: #646464;
-    height: 400px;
-  }
-  img {
-    padding-left: auto;
-    margin: auto;
-    height: 100px;
-  }
-  p {
-    margin: auto;
-    text-align: left;
-    color: #D3D4D4;
-//    width: 50%;
+    height: 300px;
+
+    img {
+      padding-left: auto;
+      margin: auto;
+      height: 100px;
+    }
+    p {
+      margin: auto;
+      text-align: left;
+      color: #D3D4D4;
+      width: 60%;
+    }
   }
 }
