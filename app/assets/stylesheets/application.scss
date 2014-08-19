@@ -30,8 +30,21 @@ body{
   h2 {
     text-align: center;
   }
-  p {
-    color: #D3D4D4;
+  div {
+    display: flex;
+    justify-content: center;
     background: #646464;
+    height: 400px;
+  }
+  img {
+    padding-left: auto;
+    margin: auto;
+    height: 100px;
+  }
+  p {
+    margin: auto;
+    text-align: left;
+    color: #D3D4D4;
+//    width: 50%;
   }
 }
