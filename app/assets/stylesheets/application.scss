@@ -1,0 +1,37 @@
+/*
+ *= require_tree .
+ *= require_self
+*/
+
+
+@import url(http://fonts.googleapis.com/css?family=Shadows+Into+Light);
+
+body{
+  font-family: 'Shadows Into Light', cursive;
+}
+
+.nav {
+  background: #333333;
+  text-align: right;
+  color: #D3D4D4;
+  }
+  .logo {
+    float: left;
+  }
+  li {
+    display: inline;
+}
+
+.container {
+  h1 {
+    text-align: center;
+    font-size: 60px;
+  }
+  h2 {
+    text-align: center;
+  }
+  p {
+    color: #D3D4D4;
+    background: #646464;
+  }
+}
