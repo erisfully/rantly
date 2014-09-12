@@ -2,7 +2,7 @@
   <ul class="nav">
     <li class="logo">Rant.ly</li>
     <li><a class="login" <%= link_to 'Login', 'user_path' %></a></li>
-    <li><a class="button" <%= link_to 'JOIN', 'new_userpath' %></a></li>
+    <li><a class="button" <%= link_to 'JOIN', new_user_path %></a></li>
   </ul>
 </header>
 
@@ -12,14 +12,16 @@
   <h2>Let it all out</h2>
 
   <div class="grid">
-    <div class="col-1-4">
-    <%= image_tag "corgi-sunglasses.jpg" %>
+    <div class="col-1-3">
+      <%= image_tag "corgi-sunglasses.jpg" %>
     </div>
-    <p class="col-3-4">Ranty rant rant. I don't like things. Can you believe that person or thing? Stuff is the worst. Grr. Rant rant
-      rant. Seriously, all the things are totally awful. I can't even handle it. I just wanna rant about it all
-      forever. Thank goodness for Rantly, because I can now actually do said ranting forever and ever and that would
-      make me happy if I was capable of that, but I just exist solely for the purpose of ranting.
-    </p>
-    <p class="col-2-3">| Rantimus, king of Ranters</p>
+    <div class="col-2-3">
+      <p>Ranty rant rant. I don't like things. Can you believe that person or thing? Stuff is the worst. Grr. Rant rant
+        rant. Seriously, all the things are totally awful. I can't even handle it. I just wanna rant about it all
+        forever. Thank goodness for Rantly, because I can now actually do said ranting forever and ever and that would
+        make me happy if I was capable of that, but I just exist solely for the purpose of ranting.
+      </p>
+      <p>| Rantimus, king of Ranters</p>
+    </div>
   </div>
 </div>
