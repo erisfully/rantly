@@ -14,7 +14,6 @@ body {
   color: #D3D4D4;
   display: flex;
   padding-left: 0px;
-  //  justify-content: flex-end;
 
   .logo {
     font-size: 20px;
@@ -36,7 +35,7 @@ body {
   .button {
     border: 1px solid #646464;
     display: block;
-    padding: 3px 28px;
+    padding: 3px 45px 3px 28px;
     background: #38731F;
     text-decoration: none;
     margin: 0 auto;
@@ -62,23 +61,33 @@ a:visited {
     margin-bottom: 4em;
   }
   div {
-    display: flex;
-    justify-content: center;
     height: 350px;
     background: #646464;
     img {
-      margin: auto;
-      margin-right: 1em;
       height: 150px;
+      padding-left: 10em;
+      position: relative;
+      top: 25%;
     }
     p {
-      margin: auto;
-      margin-left: 1em;
       text-align: left;
       color: #D3D4D4;
-      width: 60%;
+      width: 50%;
+      position: relative;
+      top: 19%
     }
-
   }
+}
+
+[class*='col-'] {
+  float: left;
+}
+
+.col-1-4 {
+  width: 33%
+}
+
+.col-3-4 {
+  width: 66%
 }
 
