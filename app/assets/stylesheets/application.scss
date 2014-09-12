@@ -26,6 +26,11 @@ body {
     display: inline;
     float: right;
     padding: 1em;
+
+  }
+
+  .login {
+    color: #ffffff;
   }
 
   .button {
@@ -35,6 +40,7 @@ body {
     background: #38731F;
     text-decoration: none;
     margin: 0 auto;
+    color: #ffffff;
   }
 }
 
@@ -53,16 +59,17 @@ a:visited {
     background: #ffffff;
     text-align: center;
     margin-top: 0;
+    margin-bottom: 4em;
   }
   div {
     display: flex;
     justify-content: center;
-    height: 300px;
+    height: 350px;
     background: #646464;
     img {
       margin: auto;
       margin-right: 1em;
-      height: 100px;
+      height: 150px;
     }
     p {
       margin: auto;
@@ -71,5 +78,7 @@ a:visited {
       color: #D3D4D4;
       width: 60%;
     }
+
   }
 }
+

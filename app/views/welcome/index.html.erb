@@ -1,16 +1,23 @@
 <header>
   <ul class="nav">
     <li class="logo">Rant.ly</li>
-    <li><%= link_to 'Login' %></li>
-    <li><a class="button" <%= link_to 'JOIN', '/register' %></a></li>
+    <li><a class="login" <%= link_to 'Login', 'user_path' %></a></li>
+    <li><a class="button" <%= link_to 'JOIN', 'new_userpath' %></a></li>
   </ul>
 </header>
 
 <div class="container">
   <h1>Rantly</h1>
-    <h2>Let it all out</h2>
-      <div>
-        <%= image_tag "corgi-sunglasses.jpg" %>
-        <p>Ranty rant rant. I don't like things. Can you believe that person or thing? Stuff is the worst. Grr. Rant rant rant. CSS is the penultimate language on my list of least favorites. JavaScript is number one. <br>| Rantimus, king of Ranters</p>
-      </div>
+
+  <h2>Let it all out</h2>
+
+  <div>
+    <%= image_tag "corgi-sunglasses.jpg" %>
+    <p>Ranty rant rant. I don't like things. Can you believe that person or thing? Stuff is the worst. Grr. Rant rant
+      rant. Seriously, all the things are totally awful. I can't even handle it. I just wanna rant about it all
+      forever. Thank goodness for Rantly, because I can now actually do said ranting forever and ever and that would
+      make me happy if I was capable of that, but I just exist solely for the purpose of ranting.
+    </p>
+    <p id="splash-name">| Rantimus, king of Ranters</p>
+  </div>
 </div>
