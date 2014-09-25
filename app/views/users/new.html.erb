@@ -1,0 +1,32 @@
+<h1>Register</h1>
+
+<%= form_for @user do |f| %>
+  <div>
+    <%= f.label 'Username' %>
+    <%= f.text_field :username %>
+  </div>
+  <div>
+    <%= f.label 'Password' %>
+    <%= f.text_field :password %>
+  </div>
+    <%= f.label 'First name' %>
+    <%= f.text_field :first_name %>
+  <div>
+    <%= f.label 'Last name' %>
+    <%= f.text_field :last_name %>
+  </div>
+  <div>
+    <%= f.label 'Bio' %>
+    <%= f.text_area :bio %>
+  </div>
+  How often do you rant?
+  <div>
+    <%= label_tag :frequency, 'Daily' %>
+    <%= radio_button_tag :frequency, 'daily'%>
+    <%= label_tag :frequency, 'Weekly' %>
+    <%= radio_button_tag :frequency, 'weekly'%>
+    <%= label_tag :frequency, 'Monthly' %>
+    <%= radio_button_tag :frequency, 'monthly'%>
+  </div>
+  <%= f.submit 'REGISTER' %>
+<% end %>
