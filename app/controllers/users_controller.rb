@@ -10,9 +10,10 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.save
-      redirect_to root_path
+      flash[:notice] = "Thank you for registering!"
+      redirect_to dashboard_path(@user)
     else
-      render 'new'
+      render :new
     end
   end
 
