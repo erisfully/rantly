@@ -9,6 +9,6 @@
   </ul>
 </header>
 
-<h1><%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path %></h1>
+<h1><%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path(@user.id) %></h1>
 
 <span><%= flash[:notice] %></span>

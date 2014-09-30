@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-  root "welcome#index"
+  root "dashboards#show"
 
+  get '/welcome' => 'welcome#index'
   resources :users
   resources :dashboards
   get '/signin' => 'sessions#new', as: :signin
