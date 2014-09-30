@@ -1,0 +1,25 @@
+<header>
+  <ul class="nav">
+    <li class="logo">Rant.ly</li>
+    <li><a class="login" <%= link_to 'Login', signin_path %></a></li>
+    <li><a class="button" <%= link_to 'JOIN', new_user_path %></a></li>
+  </ul>
+</header>
+
+<div class="grid registration-container">
+  <h1>Login</h1>
+
+  <%= form_for @user, url: signin_path do |f| %>
+    <div class="col-9-10 small-fields">
+      <%= f.label :username %>
+      <%= f.text_field :username %>
+    </div>
+    <div class="col-9-10 small-fields">
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+    </div>
+    <div>
+    <%= f.submit :login, :class => "button" %>
+    </div>
+  <% end %>
+</div>

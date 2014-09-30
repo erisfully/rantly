@@ -17,5 +17,18 @@ feature 'User login' do
     click_on 'REGISTER'
 
     expect(page).to have_content 'Spike Speigel'
+    expect(page).to have_content 'Thank you for registering'
+  end
+
+  scenario 'User can log in' do
+    visit '/'
+    click_on 'Login'
+
+    fill_in 'username', :with => 'b0untyhunt3r'
+    fill_in 'password', :with => 'ILoveJulia'
+
+    click_on 'Login'
+
+    expect(page).to have_content 'Spike Speigel'
   end
 end

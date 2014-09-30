@@ -1,0 +1,43 @@
+
+<div class="grid registration-container">
+
+  <%= form_for(@user) do |f| %>
+    <div class="col-1-2 small-fields">
+      <%= f.label 'Username' %>
+      <%= f.text_field :username, :class => "col-9-10" %>
+
+      <%= f.label 'First name' %>
+      <%= f.text_field :first_name, :class => "col-9-10" %>
+    </div>
+    <div class="col-1-2 small-fields right-side">
+      <%= f.label 'Password' %>
+      <%= f.password_field :password, :class => "col-9-10" %>
+
+      <%= f.label 'Last name' %>
+      <%= f.text_field :last_name, :class => "col-9-10" %>
+    </div>
+    <div class="bio-field">
+      <%= f.label 'Bio' %>
+      <%= f.text_area :bio, :class => "field-height" %>
+    </div>
+    <div>
+      How often do you rant?
+    </div>
+    <ul class="registration-radio-button">
+      <li>
+        <%= f.radio_button :frequency, 'daily' %>
+        <%= label_tag :frequency, 'Daily' %>
+      </li>
+      <li>
+        <%= f.radio_button :frequency, 'weekly' %>
+        <%= label_tag :frequency, 'Weekly' %>
+      </li>
+      <li>
+        <%= f.radio_button :frequency, 'monthly' %>
+        <%= label_tag :frequency, 'Monthly' %>
+      </li>
+    </ul>
+    <%= f.submit "Update", :class => "button" %>
+  <% end %>
+</div>
+</div>
