@@ -2,19 +2,6 @@ class UsersController < ApplicationController
   def index
   end
 
-  def new
-    @user = User.new
-  end
-
-  def create
-    @user = User.create(user_params)
-    if @user.save
-      flash[:notice] = "Thank you for registering!"
-      redirect_to dashboard_path(@user)
-    else
-      render :new
-    end
-  end
 
   def edit
     @user = User.find(params[:id])
