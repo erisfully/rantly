@@ -21,14 +21,14 @@ feature 'User login' do
   end
 
   scenario 'User can log in' do
+    create_user
     visit '/'
     click_on 'Login'
 
-    fill_in 'username', :with => 'b0untyhunt3r'
-    fill_in 'password', :with => 'ILoveJulia'
+    fill_in 'user_username', :with => 'RadicalEdward'
+    fill_in 'user_password', :with => 'Ein1234'
+    click_on 'login'
 
-    click_on 'Login'
-
-    expect(page).to have_content 'Spike Speigel'
+    expect(page).to have_content 'Ed Tivrusky'
   end
 end

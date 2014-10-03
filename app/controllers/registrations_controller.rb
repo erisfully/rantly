@@ -8,6 +8,8 @@ class RegistrationsController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.save
+      @user && @user.authenticate(params[:user][:password])
+      session[:user_id] = @user.id
       flash[:notice] = "Thank you for registering!"
       redirect_to dashboard_path(@user)
     else
