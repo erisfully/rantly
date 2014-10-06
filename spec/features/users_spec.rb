@@ -27,7 +27,7 @@ feature 'User login' do
 
     fill_in 'user_username', :with => 'RadicalEdward'
     fill_in 'user_password', :with => 'Ein1234'
-    click_on 'login'
+    click_on 'LOGIN'
 
     expect(page).to have_content 'Ed Tivrusky'
   end
