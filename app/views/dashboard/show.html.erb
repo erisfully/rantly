@@ -1,14 +1,4 @@
-<header>
-  <ul class="nav">
-    <li class="logo">Rant.ly</li>
-    <li><a class="nav-button" <%= link_to 'Dashboard', 'user_path' %></a></li>
-    <li><a class="nav-button" <%= link_to 'Following', 'user_path' %></a></li>
-    <li><a class="nav-button" <%= link_to 'Favorites', 'user_path' %></a></li>
-    <li><a class="nav-button" <%= link_to 'Search', 'user_path' %></a></li>
-    <li><a class="button" <%= link_to 'LOGOUT', signout_path %></a></li>
-  </ul>
-</header>
-
+<%= render 'layouts/header' %>
 <div class="col-1-4 dashboard-sidebar">
   <h1 class="titles"><%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path(@user.id) %></h1>
 

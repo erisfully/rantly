@@ -20,6 +20,9 @@ body {
     padding: 1em;
     width: 100%;
     text-align: left;
+    a:link {
+      text-decoration: none;
+    }
   }
   li {
     display: inline;
@@ -160,7 +163,8 @@ a:visited {
     text-decoration: none;
   }
 }
-.input-field{
+
+.input-field {
   width: 95%;
 }
 

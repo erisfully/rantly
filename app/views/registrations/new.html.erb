@@ -1,11 +1,4 @@
-<div class="background">
-<header>
-  <ul class="nav">
-    <li class="logo">Rant.ly</li>
-    <li><a class="nav-button" <%= link_to 'Login', 'user_path' %></a></li>
-    <li><a class="button" <%= link_to 'JOIN', new_user_path %></a></li>
-  </ul>
-</header>
+<%= render 'layouts/root_header' %>
 
 <div class="grid registration-container">
 
@@ -36,18 +29,17 @@
     <ul class="registration-radio-button">
       <li>
         <%= f.radio_button :frequency, 'daily' %>
-      <%= label_tag :frequency, 'Daily' %>
+        <%= label_tag :frequency, 'Daily' %>
       </li>
       <li>
-      <%= f.radio_button :frequency, 'weekly' %>
-      <%= label_tag :frequency, 'Weekly' %>
+        <%= f.radio_button :frequency, 'weekly' %>
+        <%= label_tag :frequency, 'Weekly' %>
       </li>
       <li>
-      <%= f.radio_button :frequency, 'monthly' %>
-      <%= label_tag :frequency, 'Monthly' %>
+        <%= f.radio_button :frequency, 'monthly' %>
+        <%= label_tag :frequency, 'Monthly' %>
       </li>
     </ul>
-      <%= f.submit "REGISTER", :class => "button" %>
+    <%= f.submit "REGISTER", :class => "button" %>
   <% end %>
-</div>
 </div>
