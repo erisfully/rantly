@@ -1,5 +1,5 @@
 <div class="rant-form-container">
-  <%= form_for @rants, url: dashboard_path do |f| %>
+  <%= form_for [@user, @rant], url: dashboard_path do |f| %>
     <div>
       <%= f.label 'A rant about:' %>
     </div>

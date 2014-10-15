@@ -103,6 +103,10 @@ a:visited {
   width: 25%
 }
 
+.col-3-4 {
+  width: 75%;
+}
+
 .registration-container {
   h1 {
     margin: 0;
@@ -150,8 +154,11 @@ a:visited {
   height: 750px;
 }
 
-.user_name {
+.titles {
   text-align: center;
+  a:link {
+    text-decoration: none;
+  }
 }
 .input-field{
   width: 95%;
@@ -159,6 +166,12 @@ a:visited {
 
 #rant_rant {
   height: 20em;
+}
+
+.dashboard-sidebar {
+  background: #646464;
+  height: 50em;
+  margin-top: -1em;
 }
 
 .rant-form-container {
@@ -173,6 +186,12 @@ a:visited {
     height: 2em;
     font-family: 'Shadows Into Light', cursive;
     font-size: 25px;
+  }
+}
+
+.rants-display {
+  .col-1-4 {
+    text-align: center;
   }
 }
 

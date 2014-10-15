@@ -3,7 +3,8 @@ class DashboardController < ApplicationController
 
   def show
     @user = User.find(session[:user_id])
-    @rants = Rant.new
+    @rant = Rant.new
+    @rants = Rant.all
   end
 
 end

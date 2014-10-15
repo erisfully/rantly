@@ -9,11 +9,28 @@
   </ul>
 </header>
 
-<div class="col-1-4">
-<h1 class="user_name"><%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path(@user.id) %></h1>
+<div class="col-1-4 dashboard-sidebar">
+  <h1 class="titles"><%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path(@user.id) %></h1>
 
-<span><%= flash[:notice] %></span>
+  <hr width="85%">
+  <span><%= flash[:notice] %></span>
 
-<%= render "rantform" %>
+  <%= render "form" %>
 
+</div>
+
+<div class="col-3-4 rants-display">
+  <h1 class="titles">Latest Rants</h1>
+  <hr width="85%">
+
+  <h1 class="titles">My Rants</h1>
+  <hr width="85%">
+  <% @rants.each do |rant| %>
+    <div class="col-1-4">
+      <%= rant.user.first_name %>
+    </div>
+    <div class="col-3-4">
+      <%= rant.rant %>
+    </div>
+  <% end %>
 </div>
