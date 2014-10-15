@@ -5,3 +5,4 @@ def login_user
   fill_in 'user_password', :with => 'Ein1234'
   click_on 'LOGIN'
 end
+
