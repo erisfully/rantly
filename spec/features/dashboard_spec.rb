@@ -2,11 +2,18 @@ require 'spec_helper'
 require 'launchy'
 
 feature 'Dashboard' do
-  it 'User can post a rant' do
-    fill_in 'rant-title', :with => 'Rant'
-    fill_in 'rant', :with => ''
-    click_on 'RANT'
+  before do
+    create_user
+    login_user
+  end
+  it 'User can post and delete a rant' do
+    fill_in 'rant_topic', :with => 'Stuff'
+    fill_in 'rant_rant', :with => 'Oh man, stuff, it\'s just awful!'
 
-    expect(page).to have_content('Rant ....')
+    click_on 'RANT'
+    expect(page).to have_content("Oh man, stuff, it's just awful!")
+
+    click_on 'Delete'
+    expect(page).to_not have_content ("Oh man, stuff, it's just awful!")
   end
 end
