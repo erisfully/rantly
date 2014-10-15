@@ -110,6 +110,10 @@ a:visited {
   width: 75%;
 }
 
+.col-1-5 {
+  width: 20%;
+}
+
 .registration-container {
   h1 {
     margin: 0;
@@ -161,6 +165,7 @@ a:visited {
   text-align: center;
   a:link {
     text-decoration: none;
+    color: #D3D4D4;
   }
 }
 
@@ -176,6 +181,7 @@ a:visited {
   background: #646464;
   height: 50em;
   margin-top: -1em;
+  color: #D3D4D4;
 }
 
 .rant-form-container {
@@ -194,8 +200,11 @@ a:visited {
 }
 
 .rants-display {
-  .col-1-4 {
+  .col-1-5 {
     text-align: center;
+  }
+  .delete-rant {
+    text-align: right;
   }
 }
 

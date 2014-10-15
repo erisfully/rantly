@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   post '/signin' => 'sessions#create'
   get 'signout' => 'sessions#destroy'
   post '/dashboard/:id' => 'rants#create'
-
+  resources :rants
 end

@@ -16,11 +16,15 @@
   <h1 class="titles">My Rants</h1>
   <hr width="85%">
   <% @rants.each do |rant| %>
-    <div class="col-1-4">
+    <div class="col-1-5">
       <%= rant.user.first_name %>
     </div>
     <div class="col-3-4">
       <%= rant.rant %>
+      <div class="delete-rant">
+        <%= link_to "Delete", rant, :method => :delete %>
+      </div>
     </div>
+    <hr width="25%">
   <% end %>
 </div>
