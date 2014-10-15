@@ -99,6 +99,10 @@ a:visited {
   width: 90%;
 }
 
+.col-1-4 {
+  width: 25%
+}
+
 .registration-container {
   h1 {
     margin: 0;
@@ -146,5 +150,30 @@ a:visited {
   height: 750px;
 }
 
+.user_name {
+  text-align: center;
+}
+.input-field{
+  width: 95%;
+}
+
+#rant_rant {
+  height: 20em;
+}
+
+.rant-form-container {
+  width: 95%;
+  margin: auto;
+  height: 25em;
+  .button {
+    background: #38731F;
+    width: 98%;
+    margin: auto;
+    color: #ffffff;
+    height: 2em;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 25px;
+  }
+}
 
 

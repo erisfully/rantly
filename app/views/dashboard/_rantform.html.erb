@@ -1,7 +1,19 @@
-<%= form_for @rants, url: dashboard_path do |f|%>
-  <%= f.label 'A rant about:' %>
-<%= f.text_field :topic %>
-  <%= f.label 'Rant:' %>
-<%= f.text_area :rant %>
-  <%= f.submit 'RANT' %>
-<% end %>
+<div class="rant-form-container">
+  <%= form_for @rants, url: dashboard_path do |f| %>
+    <div>
+      <%= f.label 'A rant about:' %>
+    </div>
+    <div>
+      <%= f.text_field :topic, :class => 'input-field' %>
+    </div>
+    <div>
+      <%= f.label 'Rant:' %>
+    </div>
+    <div>
+      <%= f.text_area :rant, :class => 'input-field' %>
+    </div>
+    <div>
+      <%= f.submit 'RANT', :class => 'button' %>
+    </div>
+  <% end %>
+</div>

@@ -9,8 +9,11 @@
   </ul>
 </header>
 
-<h1><%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path(@user.id) %></h1>
+<div class="col-1-4">
+<h1 class="user_name"><%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path(@user.id) %></h1>
 
 <span><%= flash[:notice] %></span>
 
 <%= render "rantform" %>
+
+</div>
