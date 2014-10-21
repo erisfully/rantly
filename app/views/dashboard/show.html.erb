@@ -1,13 +1,6 @@
 <%= render 'layouts/header' %>
-<div class="col-1-4 dashboard-sidebar">
-  <h1 class="titles"><%= link_to "#{@user.first_name} #{@user.last_name}", edit_user_path(@user.id) %></h1>
 
-  <hr width="85%">
-  <span><%= flash[:notice] %></span>
-
-  <%= render "form" %>
-
-</div>
+<%= render "layouts/form" %>
 
 <div class="col-3-4 rants-display">
   <h1 class="titles">Latest Rants</h1>
@@ -16,11 +9,12 @@
     <% user.rants.each do |rant| %>
       <div class="col-1-5">
         <%= user.first_name %>
+        <%= link_to "Follow", user_follow_path(current_user, user.id), :method => :post %>
       </div>
       <div class="col-3-4">
         <%= rant.rant %>
         <div class="delete-rant">
-          <%= link_to "Delete", rant, :method => :delete %>
+          <%= link_to "Delete", user_rant_path(rant.user_id, rant.id), :method => :delete %>
         </div>
       </div>
       <hr width="25%">
@@ -37,10 +31,9 @@
     <div class="col-3-4">
       <%= rant.rant %>
       <div class="delete-rant">
-        <%= link_to "Delete", rant, :method => :delete %>
+        <%= link_to "Delete", user_rant_path(rant.user_id, rant.id), :method => :delete %>
       </div>
     </div>
     <hr width="25%">
   <% end %>
-
 </div>

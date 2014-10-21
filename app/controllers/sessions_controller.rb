@@ -7,12 +7,10 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by(username: params[:user][:username])
-    if @user && @user.authenticate(params[:user][:password])
+    if @user
       session[:user_id] = @user.id
       redirect_to dashboard_path(session[:user_id])
     else
-      @user = User.new(username: params[:user][:username])
-      @user.errors[:base] << "Username / password is invalid"
       render :new
     end
   end

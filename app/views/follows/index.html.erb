@@ -1,0 +1,10 @@
+<%= render 'layouts/header' %>
+<%= render 'layouts/form' %>
+<div class="col-3-4">
+<h1 class="titles">Following</h1>
+<hr width="85%">
+</div>
+
+<% @follows.each do |followee| %>
+<%= followee.user.first_name %>
+<% end %>

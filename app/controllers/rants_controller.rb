@@ -7,7 +7,7 @@ class RantsController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:id])
+    @user = User.find(params[:user_id])
     @rant = Rant.create(rant_params)
     if @rant.save
       redirect_to dashboard_path(@user)
