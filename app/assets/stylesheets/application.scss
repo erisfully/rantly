@@ -203,12 +203,12 @@ a:visited {
   .col-1-5 {
     text-align: center;
   }
-  .delete-rant {
+  .rant-interactions {
     text-align: right;
   }
 }
 
-.follow {
+.blue-links {
   a:link {
     color: #238DD0;
   }
@@ -217,3 +217,6 @@ a:visited {
   }
 }
 
+.followers {
+  text-align: center;
+}

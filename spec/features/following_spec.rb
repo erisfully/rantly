@@ -11,9 +11,11 @@ feature "Following" do
     expect(page).to have_content "Unfollow"
     click_on "Following"
 
-    save_and_open_page
     expect(page).to have_content("Following")
     expect(page).to have_content(other_user.first_name)
     expect(page).to_not have_content(rant.rant)
+
+    click_on("Unfollow")
+    expect(page).to_not have_content(other_user.first_name)
   end
 end

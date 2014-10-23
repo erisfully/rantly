@@ -1,10 +1,13 @@
 <%= render 'layouts/header' %>
 <%= render 'layouts/form' %>
 <div class="col-3-4">
-<h1 class="titles">Following</h1>
-<hr width="85%">
-</div>
+  <h1 class="titles">Following</h1>
+  <hr width="85%">
 
-<% @follows.each do |followee| %>
-<%= followee.user.first_name %>
-<% end %>
+  <% @follows.each do |followee| %>
+    <div class="col-1-3 followers">
+      <%= followee.user.first_name %>
+      <div class="blue-links"><%= link_to "Unfollow", user_follow_path(current_user, followee.id), :method => :delete %></div>
+    </div>
+  <% end %>
+</div>
