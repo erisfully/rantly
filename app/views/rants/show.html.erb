@@ -1,5 +1,9 @@
 <%= render 'layouts/header' %>
 <%= render 'layouts/form' %>
 
-<h2><%= @specific_rant.topic %></h2>
-<p><%= @specific_rant.rant %></p>
+<div class="col-3-4">
+  <h2 class="titles"><%= @specific_rant.topic %></h2>
+  <hr width="85%">
+  <div><%= "By #{@specific_rant.user.first_name} #{@specific_rant.user.last_name}" %></div>
+  <p><%= @specific_rant.rant %></p>
+</div>
