@@ -1,5 +1,9 @@
 class RantsController < ApplicationController
-
+  def show
+    @user = User.find(session[:user_id])
+    @specific_rant = Rant.find(params[:id])
+    @rant = Rant.new
+  end
 
   def new
     @user = User.find(params[:id])

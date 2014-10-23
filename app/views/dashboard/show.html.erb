@@ -15,8 +15,8 @@
           <div class="blue-links"><%= link_to "Unfollow", user_follow_path(current_user, user.id), :method => :delete%></div>
         <% end %>
       </div>
-      <div class="col-3-4">
-        <%= rant.rant %>
+      <div class="col-3-4 rant-body">
+        <%= link_to rant.rant, user_rant_path(current_user, rant.id) %>
         <div class="rant-interactions blue-links">
           Favorite
         </div>
