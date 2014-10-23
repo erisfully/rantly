@@ -4,6 +4,7 @@ def create_user
 end
 
 def create_other_user
+  User.destroy_all(username: 'BlackD0g35')
   User.create!(username: 'BlackD0g35', password: '1arm3d', first_name: 'Jet', last_name: 'Black', bio: 'Former ISSP investigator. Bounty Hunter. Chef.', frequency: 'weekly')
 end
 

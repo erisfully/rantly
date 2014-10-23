@@ -22,7 +22,7 @@ feature 'Dashboard' do
     rant = create_rant(other_user.id)
 
     login_user
-    expect(page).to have_content "Latest Rants #{other_user.first_name} #{rant.rant}"
+    expect(page).to have_content "Latest Rants #{other_user.first_name} Follow #{rant.rant}"
   end
 
 end
