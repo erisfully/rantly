@@ -11,7 +11,7 @@ class FollowsController < ApplicationController
   end
 
   def create
-    @follow = Follow.create(follower_id: @current_user.id, followee_id: params[:id])
+    @follow = Follow.create(follower_id: current_user.id, followee_id: params[:id])
     if @follow.save
       redirect_to :back
     else
@@ -19,10 +19,17 @@ class FollowsController < ApplicationController
     end
   end
 
+  def destroy
+    @user = User.find(session[:user_id])
+    @follow = Follow.find_by_follower_id(current_user.id)
+    @user.follows.destroy(@follow)
+    redirect_to :back
+  end
+
   private
 
   def follow_params
-    params.require(:follow).permit({follower_id: @current_user.id}, {followee_id: params[:user_id]})
+    params.require(:follow).permit({follower_id: current_user.id}, {followee_id: params[:user_id]})
   end
 
 end
