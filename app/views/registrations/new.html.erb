@@ -6,26 +6,41 @@
 
   <%= form_for @user do |f| %>
     <div class="col-1-2 small-fields">
-      <%= f.label 'Username' %>
+      <div><%= f.label 'Username' %>
+        <div class="errors"><%= @user.errors[:username].first %></div>
+      </div>
       <%= f.text_field :username, :class => "col-9-10" %>
 
-      <%= f.label 'First name' %>
+      <div><%= f.label 'First name' %>
+        <div class="errors"><%= @user.errors[:first_name].first %></div>
+      </div>
       <%= f.text_field :first_name, :class => "col-9-10" %>
     </div>
     <div class="col-1-2 small-fields right-side">
-      <%= f.label 'Password' %>
+      <div>
+        <%= f.label 'Password' %>
+        <div class="errors"><%= @user.errors[:password].first %></div>
+      </div>
       <%= f.password_field :password, :class => "col-9-10" %>
-
+<div>
       <%= f.label 'Last name' %>
+      <div class="errors"><%= @user.errors[:last_name].first %></div>
+    </div>
       <%= f.text_field :last_name, :class => "col-9-10" %>
     </div>
     <div class="bio-field">
+      <div>
       <%= f.label 'Bio' %>
+      <div class="errors"><%= @user.errors[:bio].first %></div>
+      </div>
       <%= f.text_area :bio, :class => "field-height" %>
     </div>
     <div>
       How often do you rant?
     </div>
+    <% if @user.errors[:frequency].any? %>
+      <div class="errors"><%= "You must select a frequency" %></div>
+    <% end %>
     <ul class="registration-radio-button">
       <li>
         <%= f.radio_button :frequency, 'daily' %>

@@ -1,7 +1,7 @@
 require 'spec_helper'
 require 'launchy'
 
-feature 'User login' do
+feature 'User registration and login' do
   scenario 'User can register' do
     visit '/'
     click_on 'JOIN'
@@ -30,5 +30,20 @@ feature 'User login' do
     click_on 'LOGIN'
 
     expect(page).to have_content 'Ed Tivrusky'
+  end
+
+  scenario 'User fill out incomplete registration form' do
+    visit '/'
+    click_on 'JOIN'
+
+    click_on 'REGISTER'
+
+    expect(page).to have_content ("Username can't be blank")
+    expect(page).to have_content ("First name can't be blank")
+    expect(page).to have_content ("Last name can't be blank")
+    expect(page).to have_content ("Password can't be blank")
+    expect(page).to have_content ("Bio can't be blank")
+    expect(page).to have_content ("Please select how often you rant")
+
   end
 end
