@@ -15,7 +15,7 @@ class FollowsController < ApplicationController
     if @follow.save
       redirect_to :back
     else
-      render dashboard_path(params[:user_id])
+      redirect_to :back
     end
   end
 

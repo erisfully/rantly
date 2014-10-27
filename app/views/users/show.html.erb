@@ -3,6 +3,11 @@
 
 <div class="col-3-4">
   <h2 class="titles"><%= "#{@specific_user.first_name} #{@specific_user.last_name}" %></h2>
+  <% if  @follow.find_by(follower_id: current_user.id, followee_id: @specific_user.id) == nil %>
+  <div class="blue-links"><%= link_to "Follow", user_follow_path(current_user, @specific_user.id), :method => :post %></div>
+  <% else %>
+    <div class="blue-links"><%= link_to "Unfollow", user_follow_path(current_user, @specific_user.id), :method => :delete %></div>
+  <% end %>
   <hr width="85%">
   <div class="titles frequency">
     <%= "#{@specific_user.frequency.capitalize} Ranter" %>

@@ -11,5 +11,8 @@ feature "Rants" do
     expect(page).to have_content(rant.topic)
     expect(page).to have_content(rant.rant)
     expect(page).to_not have_content("My Rants")
+
+    click_on(other_user.first_name)
+    expect(page).to have_content(other_user.frequency.capitalize)
   end
 end

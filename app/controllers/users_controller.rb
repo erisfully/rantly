@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     @specific_user = User.find(params[:id])
     @user = User.find(current_user.id)
     @rant = Rant.new
+    @follow = Follow.all
   end
 
   def edit
