@@ -4,6 +4,6 @@
 <div class="col-3-4">
   <h2 class="titles"><%= @specific_rant.topic %></h2>
   <hr width="85%">
-  <div><%= "By #{@specific_rant.user.first_name} #{@specific_rant.user.last_name}" %></div>
+  <div class="black-links">by <%= link_to @specific_rant.user.first_name + " " + @specific_rant.user.last_name, user_path(@specific_rant.user.id)%></div>
   <p><%= @specific_rant.rant %></p>
 </div>

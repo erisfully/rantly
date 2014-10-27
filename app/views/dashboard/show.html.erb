@@ -8,14 +8,14 @@
   <% other_users.each do |user| %>
     <% user.rants.each do |rant| %>
       <div class="col-1-5">
-        <%= link_to user.first_name, user_path(user.id) %>
+        <div class="black-links"> <%= link_to user.first_name, user_path(user.id) %></div>
         <% if  @follow.find_by(follower_id: current_user.id, followee_id: user.id) == nil %>
           <div class="blue-links"><%= link_to "Follow", user_follow_path(current_user, user.id), :method => :post %></div>
         <% else %>
-          <div class="blue-links"><%= link_to "Unfollow", user_follow_path(current_user, user.id), :method => :delete%></div>
+          <div class="blue-links"><%= link_to "Unfollow", user_follow_path(current_user, user.id), :method => :delete %></div>
         <% end %>
       </div>
-      <div class="col-3-4 rant-body">
+      <div class="col-3-4 black-links">
         <%= link_to rant.rant, user_rant_path(current_user, rant.id) %>
         <div class="rant-interactions blue-links">
           Favorite
