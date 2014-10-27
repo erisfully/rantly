@@ -7,7 +7,7 @@ feature 'Dashboard' do
     login_user
 
     fill_in 'rant_topic', :with => 'Stuff'
-    fill_in 'rant_rant', :with => 'Oh man, stuff, it\'s just awful!'
+    fill_in 'rant_rant', :with => "Oh man, stuff, it's just awful! + #{"!" * 140}"
 
     click_on 'RANT'
     expect(page).to have_content("Oh man, stuff, it's just awful!")

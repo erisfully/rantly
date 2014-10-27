@@ -43,7 +43,7 @@ feature 'User registration and login' do
     expect(page).to have_content ("Last name can't be blank")
     expect(page).to have_content ("Password can't be blank")
     expect(page).to have_content ("Bio can't be blank")
-    expect(page).to have_content ("Please select how often you rant")
+    expect(page).to have_content ("You must select a frequency")
 
   end
 end
