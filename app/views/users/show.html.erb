@@ -4,11 +4,21 @@
 <div class="col-3-4">
   <h2 class="titles"><%= "#{@specific_user.first_name} #{@specific_user.last_name}" %></h2>
   <hr width="85%">
-  <div class="titles">
-    <%= "#{@specific_user.frequency.capitalize} Ranter"%>
+  <div class="titles frequency">
+    <%= "#{@specific_user.frequency.capitalize} Ranter" %>
   </div>
   <div>
     <%= @specific_user.bio %>
   </div>
 
+  <div>
+    <% @specific_user.rants.each do |rant| %>
+      <div class="subtitle">
+        <%= rant.topic %>
+      </div>
+      <div>
+        <%= rant.rant %>
+      </div>
+    <% end %>
+  </div>
 </div>
