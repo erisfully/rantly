@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to dashboard_path(session[:user_id])
     else
+      flash[:notice] = "Login Failed"
       redirect_to signin_path
     end
   end

@@ -44,6 +44,13 @@ feature 'User registration and login' do
     expect(page).to have_content ("Password can't be blank")
     expect(page).to have_content ("Bio can't be blank")
     expect(page).to have_content ("You must select a frequency")
+  end
 
+  scenario 'User fills out login form incorrectly' do
+    create_user
+    visit '/signin'
+    click_on 'LOGIN'
+
+    expect(page).to have_content "Login Failed"
   end
 end

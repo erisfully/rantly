@@ -21,13 +21,14 @@ feature "Rants" do
     login_user
 
     click_on "RANT"
-    expect(page).to have_content "Title can't be blank"
-    expect(page).to have_content "Body can't be blank"
+    expect(page).to have_content "Topic can't be blank"
+    expect(page).to have_content "Rant can't be blank"
 
     fill_in 'rant_topic', :with => "!" * 51
     fill_in 'rant_rant', :with => "A"
+    click_on "RANT"
 
-    expect(page).to have_content "Title is too long (maximum is 50 characters)"
-    expect(page).to have_content "Body is too short (minimum is 140 characters)"
+    expect(page).to have_content "Topic is too long (maximum is 50 characters)"
+    expect(page).to have_content "Rant is too short (minimum is 140 characters)"
   end
 end
