@@ -15,4 +15,19 @@ feature "Rants" do
     click_on(other_user.first_name)
     expect(page).to have_content(other_user.frequency.capitalize)
   end
+
+  scenario "rant form is filled out incorrectly" do
+    create_user
+    login_user
+
+    click_on "RANT"
+    expect(page).to have_content "Title can't be blank"
+    expect(page).to have_content "Body can't be blank"
+
+    fill_in 'rant_topic', :with => "!" * 51
+    fill_in 'rant_rant', :with => "A"
+
+    expect(page).to have_content "Title is too long (maximum is 50 characters)"
+    expect(page).to have_content "Body is too short (minimum is 140 characters)"
+  end
 end

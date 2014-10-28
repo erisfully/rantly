@@ -16,7 +16,7 @@ class RantsController < ApplicationController
     if @rant.save
       redirect_to dashboard_path(@user)
     else
-      redirect_to dashboard_path(@user)
+      redirect_to :back
     end
   end
 
