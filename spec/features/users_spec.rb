@@ -53,4 +53,17 @@ feature 'User registration and login' do
 
     expect(page).to have_content "Login Failed"
   end
+
+  scenario 'anonymous user receives welcome back message upon return visit' do
+    visit '/'
+    expect(page).to_not have_content("Welcome back!")
+
+    visit '/'
+    expect(page).to have_content("Welcome back!")
+
+    create_user
+    login_user
+
+    expect(page).to_not have_content("Welcome back!")
+  end
 end

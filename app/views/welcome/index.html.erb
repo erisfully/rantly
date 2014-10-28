@@ -5,6 +5,9 @@
 
   <h2>Let it all out</h2>
 
+  <% if cookies[:welcome_back] > 1  %>
+    <h3 class="titles welcome-back">Welcome Back! Please consider registering to begin your ranting!</h3>
+    <% end %>
   <div class="grid">
     <div class="col-1-3">
       <%= image_tag "corgi-sunglasses.jpg" %>
