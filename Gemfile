@@ -35,6 +35,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
+  gem 'pry-byebug'
+  gem 'pry-rails'
 end
 
 # Use ActiveModel has_secure_password

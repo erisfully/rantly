@@ -1,4 +1,5 @@
 class RantsController < ApplicationController
+
   def show
     @user = User.find(session[:user_id])
     @specific_rant = Rant.find(params[:id])
@@ -16,6 +17,7 @@ class RantsController < ApplicationController
     if @rant.save
       redirect_to dashboard_path(@user)
     else
+      flash[:errors] = @rant.errors.full_messages
       redirect_to :back
     end
   end
