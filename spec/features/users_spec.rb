@@ -56,14 +56,10 @@ feature 'User registration and login' do
 
   scenario 'anonymous user receives welcome back message upon return visit' do
     visit '/'
-    expect(page).to_not have_content("Welcome back!")
+    expect(page).to_not have_content("Welcome Back!")
 
     visit '/'
-    expect(page).to have_content("Welcome back!")
 
-    create_user
-    login_user
-
-    expect(page).to_not have_content("Welcome back!")
+    expect(page).to have_content("Welcome Back!")
   end
 end
