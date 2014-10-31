@@ -1,5 +1,9 @@
 class FavoritesController < ApplicationController
 
+  def index
+    @favorite = Favorite.all
+  end
+
   def new
     @favorite = Favorite.new
   end

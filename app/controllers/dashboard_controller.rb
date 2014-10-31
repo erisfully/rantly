@@ -5,6 +5,7 @@ class DashboardController < ApplicationController
     @rant = Rant.new
     @rants = Rant.all
     @follow = Follow.all
+    @favorite = Favorite.all
   end
 
 end
