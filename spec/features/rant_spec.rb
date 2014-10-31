@@ -40,5 +40,11 @@ feature "Rants" do
 
     click_on "Favorite"
 
+    expect(page).to have_content "Unfavorite"
+
+    click_on "Unfavorite"
+
+    expect(page).to have_content "Favorite"
+
   end
 end
