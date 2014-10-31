@@ -35,16 +35,24 @@ feature "Rants" do
   scenario "User favorites a rant" do
     create_user
     other_user = create_other_user
-    create_rant(other_user.id)
+    rant = create_rant(other_user.id)
     login_user
 
     click_on "Favorite"
 
     expect(page).to have_content "Unfavorite"
 
+    click_on "Favorites"
+
+    expect(page).to have_content("Favorites")
+    expect(page).to have_content(other_user.first_name)
+    expect(page).to have_content(rant.rant)
+
     click_on "Unfavorite"
 
-    expect(page).to have_content "Favorite"
+    expect(page).to_not have_content(rant.rant)
+
+
 
   end
 end

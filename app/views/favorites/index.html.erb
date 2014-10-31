@@ -1,0 +1,21 @@
+<%= render 'layouts/header' %>
+<%= render 'layouts/form' %>
+
+<div class="col-3-4 rants-display">
+  <h2 class="titles">Favorites</h2>
+  <hr width="85%">
+  <% current_user.favorites.each do |favorite| %>
+    <div class="col-1-5">
+      <div class="black-links"> <%= link_to favorite.rant.user.first_name, user_path(favorite.user_id) %></div>
+    </div>
+
+    <div class="col-3-4">
+      <%= favorite.rant.rant %>
+      <div class="rant-interactions blue-links">
+        <%= link_to "Unfavorite", user_rant_favorite_path(current_user.id, favorite.rant_id, :id), :method => :delete %>
+      </div>
+    </div>
+    <hr width="25%">
+  <% end %>
+
+</div>

@@ -18,4 +18,5 @@ Rails.application.routes.draw do
   post '/dashboard/:id' => 'rants#create'
 
   post '/users/:id/follows/:id' => 'follows#create'
+  get '/users/:user_id/favorites' => 'favorites#index', as: :favorites
 end
