@@ -52,7 +52,12 @@ feature "Rants" do
 
     expect(page).to_not have_content(rant.rant)
 
-
-
+    click_on "Dashboard"
+    click_on rant.rant
+    click_on "Favorite"
+    
+    expect(page).to have_content "Unfavorite"
   end
+
+
 end
