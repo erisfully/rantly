@@ -25,4 +25,15 @@ feature 'Profile' do
     click_on("Following")
     expect(page).to have_content(other_user.first_name)
   end
+
+  it "user's rants are ordered by most favorites" do
+    user = create_user
+    other_user = create_other_user
+    rant_1 = create_rant(other_user.id)
+    create_favorite(user.id, rant_1.id)
+    rant_2 = create_rant(other_user.id)
+    login_user
+
+    #finish this later
+  end
 end
