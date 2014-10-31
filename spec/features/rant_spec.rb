@@ -55,7 +55,7 @@ feature "Rants" do
     click_on "Dashboard"
     click_on rant.rant
     click_on "Favorite"
-    
+
     expect(page).to have_content "Unfavorite"
   end
 
