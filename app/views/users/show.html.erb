@@ -2,9 +2,10 @@
 <%= render 'layouts/form' %>
 
 <div class="col-3-4">
+  <div class="individual-display">
   <h2 class="titles"><%= "#{@specific_user.first_name} #{@specific_user.last_name}" %></h2>
   <% if  @follow.find_by(follower_id: current_user.id, followee_id: @specific_user.id) == nil %>
-  <div class="blue-links"><%= link_to "Follow", user_follow_path(current_user, @specific_user.id), :method => :post %></div>
+    <div class="blue-links"><%= link_to "Follow", user_follow_path(current_user, @specific_user.id), :method => :post %></div>
   <% else %>
     <div class="blue-links"><%= link_to "Unfollow", user_follow_path(current_user, @specific_user.id), :method => :delete %></div>
   <% end %>
@@ -26,4 +27,5 @@
       </div>
     <% end %>
   </div>
+</div>
 </div>

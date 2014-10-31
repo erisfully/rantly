@@ -4,6 +4,7 @@ class RantsController < ApplicationController
     @user = User.find(session[:user_id])
     @specific_rant = Rant.find(params[:id])
     @rant = Rant.new
+    @favorites = Favorite.all
   end
 
   def new

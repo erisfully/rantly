@@ -2,8 +2,19 @@
 <%= render 'layouts/form' %>
 
 <div class="col-3-4">
-  <h2 class="titles"><%= @specific_rant.topic %></h2>
-  <hr width="85%">
-  <div class="black-links">by <%= link_to @specific_rant.user.first_name + " " + @specific_rant.user.last_name, user_path(@specific_rant.user.id)%></div>
-  <p><%= @specific_rant.rant %></p>
+  <div class="individual-display">
+    <h2 class="titles"><%= @specific_rant.topic %>
+      <div class="rant-interactions blue-links" id="rant-page-follow">
+        <% if @favorites.find_by(user_id: current_user.id, rant_id: @specific_rant.id) == nil %>
+          <%= link_to "Favorite", user_rant_favorites_path(current_user.id, @specific_rant.id), :method => :post %>
+        <% else %>
+          <%= link_to "Unfavorite", user_rant_favorite_path(current_user.id, @specific_rant.id, :id), :method => :delete %>
+        <% end %>
+      </div>
+    </h2>
+    <hr width="85%">
+    <div class="black-links">by <%= link_to @specific_rant.user.first_name + " " + @specific_rant.user.last_name, user_path(@specific_rant.user.id) %>
+    </div>
+    <p><%= @specific_rant.rant %></p>
+  </div>
 </div>
