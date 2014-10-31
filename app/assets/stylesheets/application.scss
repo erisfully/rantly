@@ -267,3 +267,21 @@ a:visited {
   width: 90%;
   margin: auto;
 }
+
+.search form {
+  width: 95%;
+  margin: auto;
+  .button {
+    background: #38731F;
+    width: 30%;
+    padding: 0;
+    height: 2em;
+    color: #ffffff;
+    font-size: 1.5em;
+    font-family: 'Shadows Into Light', cursive;
+  }
+  .field {
+    width: 65%;
+    height: 4em;
+  }
+}

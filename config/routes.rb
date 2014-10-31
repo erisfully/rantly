@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "dashboard#show"
+  root "dashboard#search"
 
   get '/welcome' => 'welcome#index'
   get 'register' => 'registrations#new', as: :users
@@ -19,4 +19,6 @@ Rails.application.routes.draw do
 
   post '/users/:id/follows/:id' => 'follows#create'
   get '/users/:user_id/favorites' => 'favorites#index', as: :favorites
+
+  resources :search
 end
