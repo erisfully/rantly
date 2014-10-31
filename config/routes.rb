@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   post '/register' => 'registrations#create'
   resources :users do
     resources :follows
-    resources :rants
+    resources :rants do
+      resources :favorites
+    end
   end
   resources :dashboard
   get '/signin' => 'sessions#new', as: :signin

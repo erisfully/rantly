@@ -25,4 +25,5 @@ feature 'Dashboard' do
     expect(page).to have_content "Latest Rants #{other_user.first_name} Follow #{rant.rant}"
   end
 
+
 end

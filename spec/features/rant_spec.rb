@@ -31,4 +31,14 @@ feature "Rants" do
     expect(page).to have_content "Topic is too long (maximum is 50 characters)"
     expect(page).to have_content "Rant is too short (minimum is 140 characters)"
   end
+
+  scenario "User favorites a rant" do
+    create_user
+    other_user = create_other_user
+    create_rant(other_user.id)
+    login_user
+
+    click_on "Favorite"
+
+  end
 end

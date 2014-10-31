@@ -213,15 +213,6 @@ a:visited {
   }
 }
 
-.blue-links {
-  a:link {
-    color: #238DD0;
-  }
-  a:visited {
-    color: #238DD0;
-  }
-}
-
 .followers {
   text-align: center;
 }
@@ -233,6 +224,16 @@ a:visited {
   }
   a:visited {
     color: #000000;
+  }
+}
+
+.blue-links {
+  a:link {
+    color: #238DD0;
+    text-decoration: underline;
+  }
+  a:visited {
+    color: #238DD0;
   }
 }
 

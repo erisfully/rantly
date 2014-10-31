@@ -18,7 +18,7 @@
       <div class="col-3-4 black-links">
         <%= link_to rant.rant, user_rant_path(current_user, rant.id) %>
         <div class="rant-interactions blue-links">
-          Favorite
+          <%=  link_to "Favorite", user_rant_favorites_path(current_user.id, rant.id), :method => :post %>
         </div>
       </div>
       <hr width="25%">

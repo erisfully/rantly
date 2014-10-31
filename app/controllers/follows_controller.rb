@@ -29,7 +29,7 @@ class FollowsController < ApplicationController
   private
 
   def follow_params
-    params.require(:follow).permit({follower_id: current_user.id}, {followee_id: params[:user_id]})
+    params.require(:follow).permit({follower_id: current_user.id}, {followee_id: params[:id]})
   end
 
 end
