@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @rant = Rant.new
     @specific_rants = Rant.order('favorites_count DESC')
     @follow = Follow.all
+    @favorite = Favorite.all
   end
 
   def edit
@@ -22,8 +23,6 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
-
-
 
   private
 

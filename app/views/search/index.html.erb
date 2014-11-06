@@ -1,0 +1,21 @@
+<%= render 'layouts/header' %>
+<%= render 'layouts/form' %>
+
+<div class="col-3-4 search form">
+  <h1 class="titles">Search</h1>
+  <hr width="85%">
+  <%= form_tag '/search', :method => 'get' do %>
+    <%= text_field_tag :search, nil, :class => "field" %>
+    <%= submit_tag "Search", :class => "button" %>
+  <% end %>
+
+<div>
+  <ul>
+    <% if @users_results != nil %>
+      <% @users_results.rants.each do |rant| %>
+      <li><%= rant.rant %></li>
+     <% end %>
+    <% end %>
+  </ul>
+</div>
+</div>

@@ -24,6 +24,14 @@
       </div>
       <div>
         <%= rant.rant %>
+        <div class="rant-interactions blue-links">
+          <%= rant.favorites.count %> -
+          <% if @favorite.find_by(user_id: current_user.id, rant_id: rant.id) == nil %>
+            <%= link_to "Favorite", user_rant_favorites_path(current_user.id, rant.id), :method => :post %>
+          <% else %>
+            <%= link_to "Unfavorite", user_rant_favorite_path(current_user.id, rant.id, :id), :method => :delete %>
+          <% end %>
+        </div>
       </div>
     <% end %>
   </div>

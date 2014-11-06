@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "dashboard#search"
+  root "dashboard#show"
 
   get '/welcome' => 'welcome#index'
   get 'register' => 'registrations#new', as: :users
