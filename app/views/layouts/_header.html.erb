@@ -1,6 +1,6 @@
 <header>
   <ul class="nav">
-    <li class="logo">Rant.ly</li>
+    <li class="logo"><%= link_to 'Rant.ly', dashboard_path(current_user) %></li>
     <li><a class="nav-button" <%= link_to 'Dashboard', dashboard_path(current_user) %></a></li>
     <li><a class="nav-button" <%= link_to 'Following', user_follows_path(current_user) %></a></li>
     <li><a class="nav-button" <%= link_to 'Favorites', favorites_path(current_user)%></a></li>
