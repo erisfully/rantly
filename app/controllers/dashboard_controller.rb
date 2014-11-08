@@ -6,6 +6,7 @@ class DashboardController < ApplicationController
     @rants = Rant.order('id DESC')
     @follow = Follow.all
     @favorite = Favorite.all
+    @mentions = Rant.mentions(current_user)
   end
 
 end
