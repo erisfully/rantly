@@ -26,4 +26,12 @@ feature 'Dashboard' do
   end
 
 
+  it 'User can see when they are mentioned' do
+    create_user
+    other_user = create_other_user
+    rant = create_rant(other_user.id)
+    login_user
+
+    expect(page).to have_content(rant.rant)
+  end
 end
