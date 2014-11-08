@@ -5,3 +5,5 @@ Welcome to the next big thing. We're going to take on Twitter. Now-a-days everyo
 Help use raise our Series A and get our prototype out. We only have a week to do it! Good luck!
 
 Deployed at: [rantlyapp.herokuapp.com](http://rantlyapp.herokuapp.com/)
+
+<a href="https://codeclimate.com/github/erisfully/rantly"><img src="https://codeclimate.com/github/erisfully/rantly/badges/gpa.svg" /></a>
