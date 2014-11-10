@@ -6,7 +6,8 @@
 
   <% @follows.each do |followee| %>
     <div class="col-1-3 followers">
-      <%= followee.user.first_name %>
+      <div><%= followee.user.first_name %></div>
+      <div><%= image_tag followee.user.avatar %></div>
       <div class="blue-links"><%= link_to "Unfollow", user_follow_path(current_user, followee.id), :method => :delete %></div>
     </div>
   <% end %>

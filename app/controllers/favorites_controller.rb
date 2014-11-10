@@ -3,7 +3,7 @@ class FavoritesController < ApplicationController
   def index
     @user = User.find(current_user.id)
     @rant = Rant.new
-    @follow = Follow.new
+    @follow = Follow.all
   end
 
   def show

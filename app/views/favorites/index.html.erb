@@ -7,6 +7,12 @@
   <% current_user.favorites.each do |favorite| %>
     <div class="col-1-5">
       <div class="black-links"> <%= link_to favorite.rant.user.first_name, user_path(favorite.user_id) %></div>
+      <div><%= image_tag favorite.rant.user.avatar_url(:thumb) %></div>
+      <% if  @follow.find_by(follower_id: current_user.id, followee_id: favorite.rant.user.id) == nil %>
+        <div class="blue-links"><%= link_to "Follow", user_follow_path(current_user, favorite.rant.user.id), :method => :post %></div>
+      <% else %>
+        <div class="blue-links"><%= link_to "Unfollow", user_follow_path(current_user, favorite.rant.user.id), :method => :delete %></div>
+      <% end %>
     </div>
 
     <div class="col-3-4">
