@@ -8,16 +8,41 @@
     <%= text_field_tag :search, nil, :class => "field" %>
     <%= submit_tag "SEARCH", :class => "button" %>
   <% end %>
+</div>
 
-<div>
-  <ul>
-    <% if @users_results != nil %>
-      <% @users_results.rants.each do |rant| %>
-      <li><%= rant.rant %></li>
-     <% end %>
-     <% else %>
-    <span>No results. Please search again.</span>
+<div class="col-3-4 rants-display">
+  <% if @search_results != nil %>
+    <% @search_results.each do |rant| %>
+      <div class="rant-and-picture">
+        <div class="col-1-5">
+          <div class="black-links"> <%= link_to rant.user.first_name, user_path(rant.user.id) %>
+            <div><%= image_tag rant.user.avatar_url(:thumb) %></div>
+            <% if  @follow.find_by(follower_id: current_user.id, followee_id: rant.user.id) == nil %>
+              <div class="blue-links"><%= link_to "Follow", user_follow_path(current_user, rant.user.id), :method => :post %></div>
+            <% else %>
+              <div class="blue-links"><%= link_to "Unfollow", user_follow_path(current_user, rant.user.id), :method => :delete %></div>
+            <% end %>
+          </div>
+        </div>
+        <div class="col-3-4 black-links">
+          <%= link_to rant.rant, user_rant_path(current_user, rant.id) %>
+          <div class="rant-interactions blue-links">
+            <%= rant.favorites.count %> -
+            <% if @favorite.find_by(user_id: current_user.id, rant_id: rant.id) == nil %>
+              <%= link_to "Favorite", user_rant_favorites_path(current_user.id, rant.id), :method => :post %>
+            <% else %>
+              <%= link_to "Unfavorite", user_rant_favorite_path(current_user.id, rant.id, :id), :method => :delete %>
+            <% end %>
+          </div>
+        </div>
+        <hr width="25%">
+      </div>
     <% end %>
-  </ul>
+  <% else %>
+    <span>No results. Please search again.</span>
+  <% end %>
 </div>
-</div>
+
+
+
+
