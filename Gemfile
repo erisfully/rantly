@@ -17,7 +17,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'carrierwave'
 gem 'rmagick', :require => 'RMagick'
 
-
+gem 'redcarpet'
 
 group :development, :test do
   gem 'rspec-rails'
