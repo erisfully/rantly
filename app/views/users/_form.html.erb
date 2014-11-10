@@ -1,7 +1,6 @@
-
 <div class="grid registration-container">
 
-  <%= form_for(@user) do |f| %>
+  <%= form_for(@user, :html => {:multipart => true}) do |f| %>
     <div class="col-1-2 small-fields">
       <%= f.label 'Username' %>
       <%= f.text_field :username, :class => "col-9-10" %>
@@ -37,6 +36,9 @@
         <%= label_tag :frequency, 'Monthly' %>
       </li>
     </ul>
+    <div>
+      <%= f.file_field :avatar %>
+    </div>
     <%= f.submit "Update", :class => "button" %>
   <% end %>
 </div>

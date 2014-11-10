@@ -55,6 +55,10 @@
         <%= label_tag :frequency, 'Monthly' %>
       </li>
     </ul>
+    <div>
+      <%= f.label "Add profile picture:" %>
+      <%= f.file_field :avatar %>
+    </div>
     <%= f.submit "REGISTER", :class => "button" %>
   <% end %>
 </div>
