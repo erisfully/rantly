@@ -16,7 +16,7 @@
     </div>
 
     <div class="col-3-4">
-      <%= favorite.rant.rant %>
+      <%= favorite.rant.rant.truncate(300, separator: ' ') %>
       <div class="rant-interactions blue-links">
         <%= link_to "Unfavorite", user_rant_favorite_path(current_user.id, favorite.rant_id, :id), :method => :delete %>
       </div>

@@ -25,7 +25,7 @@
           </div>
         </div>
         <div class="col-3-4 black-links">
-          <%= link_to rant.rant, user_rant_path(current_user, rant.id) %>
+          <%= link_to rant.rant.truncate(300, separator: ' '), user_rant_path(current_user, rant.id) %>
           <div class="rant-interactions blue-links">
             <%= rant.favorites.count %> -
             <% if @favorite.find_by(user_id: current_user.id, rant_id: rant.id) == nil %>
