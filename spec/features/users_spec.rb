@@ -13,6 +13,7 @@ feature 'User registration and login' do
     fill_in 'user_password', :with => 'ILoveJulia'
     fill_in 'user_bio', :with => 'Former crime syndicate member turned bounty hunter. Hates children, pets, and women with attitude.'
     choose 'user_frequency_weekly'
+    attach_file 'user_avatar', 'app/assets/images/corgi-sunglasses.jpg'
 
     click_on 'REGISTER'
 

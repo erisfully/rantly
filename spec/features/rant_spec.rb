@@ -40,7 +40,7 @@ feature "Rants" do
 
     click_on "Favorite"
 
-    expect(page).to have_content "Unfavorite"
+    expect(page).to have_content "1 - Unfavorite"
 
     click_on "Favorites"
 
@@ -59,5 +59,42 @@ feature "Rants" do
     expect(page).to have_content "Unfavorite"
   end
 
+  scenario "User sees when they are mentioned" do
+    user = create_user
+    other_user = create_other_user
+    rant = create_mention_rant(user, other_user.id)
+    login_user
 
+    expect(page).to have_content ("Mentions #{other_user.first_name}" + " " + "#{rant.rant}")
+  end
+
+  scenario "User can comment on rant" do
+    create_user
+    other_user = create_other_user
+    rant = create_rant(other_user.id)
+    login_user
+
+    click_on rant.rant
+
+    fill_in "comment_comment", :with => "Here's my comment"
+    click_on "RANT BACK"
+
+    expect(page).to have_content "Here's my comment"
+  end
+
+  scenario "User can mark rant as spam" do
+    create_user
+    other_user = create_other_user
+    rant = create_rant(other_user.id)
+    login_user
+
+    click_on rant.rant
+    click_on "Spam"
+    expect(page).to have_content "Unspam"
+    expect(page).to_not have_content "Spam"
+
+    click_on "Unspam"
+    expect(page).to have_content "Spam"
+    expect(page).to_not have_content "Unspam"
+  end
 end

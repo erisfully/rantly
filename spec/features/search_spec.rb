@@ -9,10 +9,6 @@ feature 'Search' do
     login_user
     visit '/search'
 
-    fill_in "search", :with => "jibberish!*()"
-    click_on "SEARCH"
-    expect(page).to have_content("No results. Please search again.")
-
     fill_in "search", :with => other_user.first_name
     click_on "SEARCH"
     expect(page).to have_content(rant.rant)
@@ -22,6 +18,14 @@ feature 'Search' do
     expect(page).to have_content(rant.rant)
 
     fill_in "search", :with => other_user.username
+    click_on "SEARCH"
+    expect(page).to have_content(rant.rant)
+
+    fill_in "search", :with => "Food"
+    click_on "SEARCH"
+    expect(page).to have_content(rant.rant)
+
+    fill_in "search", :with => "annoying"
     click_on "SEARCH"
     expect(page).to have_content(rant.rant)
   end

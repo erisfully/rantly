@@ -34,4 +34,13 @@ feature 'Dashboard' do
 
     expect(page).to have_content(rant.rant)
   end
+
+  it 'Has rants truncated at 300 characters' do
+    create_user
+    other_user = create_other_user
+    rant = create_rant(other_user.id)
+    login_user
+
+    expect(rant.rant.length).to be < 300
+  end
 end
