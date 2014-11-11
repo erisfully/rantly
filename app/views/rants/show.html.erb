@@ -3,9 +3,8 @@
 
 <div class="col-3-4">
   <div class="individual-display">
-    <h2 class="titles" style="margin-bottom:-.5em"><%= @specific_rant.topic %>
-
-    </h2>
+    <h1 class="titles" style="margin-bottom:-.5em; font-size: 3em"><%= @specific_rant.topic %>
+    </h1>
 
     <div class="blue-links" id="rant-page-follow">
       <%= @specific_rant.favorites.count %> -
@@ -16,8 +15,8 @@
       <% end %>
     </div>
     <hr width="85%">
-    <div class="black-links">by <%= link_to @specific_rant.user.first_name + " " + @specific_rant.user.last_name, user_path(@specific_rant.user.id) %>
-      <%= link_to "Tweet", "http://twitter.com/home?status=A rant about #{@specific_rant.topic}: http://rantlyapp.herokuapp.com/users/#{current_user.id}/rants/#{@specific_rant.id}", :class => "tweet" %>
+    <div class="black-links" style="font-size:2em">by <%= link_to @specific_rant.user.first_name + " " + @specific_rant.user.last_name, user_path(@specific_rant.user.id) %>
+      <%= link_to "Tweet", "http://twitter.com/home?status=A rant about #{@specific_rant.topic}: http://rantlyapp.herokuapp.com/users/#{current_user.id}/rants/#{@specific_rant.id}", :id => "tweet" %>
     </div>
     <p><%= markdown(@specific_rant.rant) %></p>
   </div>
@@ -40,8 +39,8 @@
 
   <div class="search form">
     <%= form_for @comment, url: user_rant_comments_path(current_user.id, @specific_rant.id, :id) do |f| %>
-      <%= f.text_area :comment, :class => "field", :style => "width:100%"%>
-      <%= f.submit "RANT BACK", :class => "button", :style => "float:right"%>
+      <%= f.text_area :comment, :class => "field", :style => "width:100%" %>
+      <%= f.submit "RANT BACK", :class => "button", :style => "float:right" %>
     <% end %>
   </div>
 </div>
