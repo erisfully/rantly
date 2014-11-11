@@ -22,4 +22,7 @@ Rails.application.routes.draw do
   get '/users/:user_id/favorites' => 'favorites#index', as: :favorites
 
   resources :search
+  get '/rants/:rant_id/spam' => 'rants#spam', as: :spam
+  get '/rants/:rant_id/unspam' => 'rants#unspam', as: :unspam
+
 end
