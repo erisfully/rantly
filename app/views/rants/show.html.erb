@@ -17,7 +17,7 @@
     </div>
     <hr width="85%">
     <div class="black-links">by <%= link_to @specific_rant.user.first_name + " " + @specific_rant.user.last_name, user_path(@specific_rant.user.id) %>
-      <%= link_to "Tweet", "http://twitter.com/home?status=A rant about #{@specific_rant.topic}: rantlyapp.herokuapp.com/users/#{current_user.id}/rant/#{@specific_rant.id}" %>
+      <%= link_to "Tweet", "http://twitter.com/home?status=A rant about #{@specific_rant.topic}: http://rantlyapp.herokuapp.com/users/#{current_user.id}/rants/#{@specific_rant.id}", :class => "tweet" %>
     </div>
     <p><%= markdown(@specific_rant.rant) %></p>
   </div>
