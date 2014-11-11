@@ -20,6 +20,7 @@
     </div>
     <p><%= markdown(@specific_rant.rant) %></p>
   </div>
+  <hr width="25%">
 
   <div class="rants-display">
     <% @specific_rant.comments.each do |comment| %>
@@ -28,7 +29,7 @@
           <div class="black-links"><%= comment.user.first_name %></div>
           <div><%= image_tag comment.user.avatar_url(:thumb) %></div>
         </div>
-        <div class="col-3-4 black-links">
+        <div class="col-3-4 black-links" style="height: 130px">
           <%= comment.comment %>
         </div>
         <hr width="25%">
@@ -38,8 +39,8 @@
 
   <div class="search form">
     <%= form_for @comment, url: user_rant_comments_path(current_user.id, @specific_rant.id, :id) do |f| %>
-      <%= f.text_area :comment, :class => "field" %>
-      <%= f.submit "RANT BACK", :class => "button" %>
+      <%= f.text_area :comment, :class => "field", :style => "width:100%"%>
+      <%= f.submit "RANT BACK", :class => "button", :style => "float:right"%>
     <% end %>
   </div>
 </div>
