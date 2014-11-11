@@ -5,6 +5,7 @@ class RantsController < ApplicationController
     @specific_rant = Rant.find(params[:id])
     @rant = Rant.new
     @favorites = Favorite.all
+    @comment = Comment.new
   end
 
   def new

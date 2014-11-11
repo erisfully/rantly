@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :follows
     resources :rants do
+      resources :comments
       resources :favorites
     end
   end

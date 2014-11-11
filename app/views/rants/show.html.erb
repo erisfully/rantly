@@ -6,6 +6,7 @@
     <h2 class="titles" style="margin-bottom:-.5em"><%= @specific_rant.topic %>
 
     </h2>
+
     <div class="blue-links" id="rant-page-follow">
       <%= @specific_rant.favorites.count %> -
       <% if @favorites.find_by(user_id: current_user.id, rant_id: @specific_rant.id) == nil %>
@@ -18,5 +19,27 @@
     <div class="black-links">by <%= link_to @specific_rant.user.first_name + " " + @specific_rant.user.last_name, user_path(@specific_rant.user.id) %>
     </div>
     <p><%= markdown(@specific_rant.rant) %></p>
+  </div>
+
+  <div class="rants-display">
+    <% @specific_rant.comments.each do |comment| %>
+      <div class="rant-and-picture">
+        <div class="col-1-5">
+          <div class="black-links"><%= comment.user.first_name %></div>
+          <div><%= image_tag comment.user.avatar_url(:thumb) %></div>
+        </div>
+        <div class="col-3-4 black-links">
+          <%= comment.comment %>
+        </div>
+        <hr width="25%">
+    <% end %>
+    </div>
+  </div>
+
+  <div class="search form">
+    <%= form_for @comment, url: user_rant_comments_path(current_user.id, @specific_rant.id, :id) do |f| %>
+      <%= f.text_area :comment, :class => "field" %>
+      <%= f.submit "RANT BACK", :class => "button" %>
+    <% end %>
   </div>
 </div>

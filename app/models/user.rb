@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   has_many :follows, foreign_key: :follower_id
   has_many :follows, foreign_key: :followee_id
   has_many :favorites
+  has_many :comments
 
   validates :username, :first_name, :last_name, :password, :bio, :frequency, :avatar, :presence => true
   validates :username, :uniqueness => true

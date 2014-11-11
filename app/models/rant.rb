@@ -1,6 +1,7 @@
 class Rant < ActiveRecord::Base
   belongs_to :user
   has_many :favorites, dependent: :destroy
+  has_many :comments
 
   validates :topic, :rant, :user_id, :presence => true
   validates :topic, length: {maximum: 50}
