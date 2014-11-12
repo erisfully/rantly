@@ -20,7 +20,7 @@
       </div>
 
       <div class="col-3-4 black-links">
-        <%= link_to rant.rant.truncate(300, separator: ' '), user_rant_path(current_user, rant.id) %>
+        <%= link_to markdown(rant.rant.truncate(300, separator: ' ')), user_rant_path(current_user, rant.id) %>
         <div class="rant-interactions blue-links">
           <%= rant.favorites.count %> -
           <% if @favorite.find_by(user_id: current_user.id, rant_id: rant.id) == nil %>
@@ -45,7 +45,7 @@
       <div><%= image_tag rant.user.avatar_url(:thumb) %></div>
     </div>
     <div class="col-3-4">
-      <%= rant.rant.truncate(300, separator: ' ') %>
+      <%= markdown(rant.rant.truncate(300, separator: ' ')) %>
       <div class="rant-interactions blue-links">
         <%= link_to "Delete", user_rant_path(rant.user_id, rant.id), :method => :delete %>
       </div>
@@ -61,7 +61,7 @@
       <div><%= image_tag rant.user.avatar_url(:thumb) %></div>
     </div>
     <div class="col-3-4">
-      <%= rant.rant.truncate(300, separator: ' ') %>
+      <%= markdown(rant.rant.truncate(300, separator: ' ')) %>
       <div class="rant-interactions blue-links">
         <%= rant.favorites.count %> -
         <% if @favorite.find_by(user_id: current_user.id, rant_id: rant.id) == nil %>
