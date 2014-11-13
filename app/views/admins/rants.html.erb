@@ -1,0 +1,18 @@
+<%= render 'layouts/header' %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Title</th>
+    <th>Actions</th>
+  </tr>
+  <% @rants.each do |rant| %>
+  <tr>
+    <td><%= rant.user.first_name + rant.user.last_name %></td>
+    <td><%= rant.user.email %></td>
+    <td><%= rant.topic %></td>
+    <td>view</td>
+  </tr>
+    <% end %>
+    </table>

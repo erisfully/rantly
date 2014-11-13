@@ -12,7 +12,7 @@ Rails.application.routes.draw do
       resources :favorites
     end
   end
-  resources :dashboard
+  resources :dashboard, only: [:show]
   get '/signin' => 'sessions#new', as: :signin
   post '/signin' => 'sessions#create'
   get 'signout' => 'sessions#destroy'
@@ -25,4 +25,6 @@ Rails.application.routes.draw do
   get '/rants/:rant_id/spam' => 'rants#spam', as: :spam
   get '/rants/:rant_id/unspam' => 'rants#unspam', as: :unspam
 
+  get '/admin/dashboard' => 'admins#dashboard'
+  get '/admin/rants' => 'admins#rants'
 end

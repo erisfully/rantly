@@ -1,10 +1,33 @@
-<header>
-  <ul class="nav">
-    <li class="logo"><%= link_to 'Rant.ly', dashboard_path(current_user) %></li>
-    <li><a class="nav-button" <%= link_to 'Dashboard', dashboard_path(current_user) %></a></li>
-    <li><a class="nav-button" <%= link_to 'Following', user_follows_path(current_user) %></a></li>
-    <li><a class="nav-button" <%= link_to 'Favorites', favorites_path(current_user)%></a></li>
-    <li><a class="nav-button" <%= link_to 'Search', search_index_path%></a></li>
-    <li><a class="button" <%= link_to 'LOGOUT', signout_path %></a></li>
-  </ul>
-</header>
+<% if current_user && current_user.admin %>
+  <header>
+    <ul class="nav">
+      <li class="logo"><%= link_to 'Rant.ly', admin_dashboard_path %></li>
+      <li><a class="nav-button" <%= link_to 'Dashboard', admin_dashboard_path %></a></li>
+      <li><a class="nav-button" <%= link_to 'Rants', admin_rants_path %></a></li>
+      <li><a class="nav-button" <%= link_to 'Users', favorites_path(current_user) %></a></li>
+      <li><a class="button" <%= link_to 'LOGOUT', signout_path %></a></li>
+    </ul>
+  </header>
+
+<% elsif current_user %>
+  <header>
+    <ul class="nav">
+      <li class="logo"><%= link_to 'Rant.ly', dashboard_path(current_user) %></li>
+      <li><a class="nav-button" <%= link_to 'Dashboard', dashboard_path(current_user) %></a></li>
+      <li><a class="nav-button" <%= link_to 'Following', user_follows_path(current_user) %></a></li>
+      <li><a class="nav-button" <%= link_to 'Favorites', favorites_path(current_user) %></a></li>
+      <li><a class="nav-button" <%= link_to 'Search', search_index_path %></a></li>
+      <li><a class="button" <%= link_to 'LOGOUT', signout_path %></a></li>
+    </ul>
+  </header>
+
+<% else %>
+  <header>
+    <ul class="nav">
+      <li class="logo"><%= link_to 'Rant.ly', welcome_path %></li>
+      <li><a class="login" <%= link_to 'Login', signin_path %></a></li>
+      <li><a class="button" <%= link_to 'JOIN', register_path %></a></li>
+    </ul>
+  </header>
+
+<% end %>

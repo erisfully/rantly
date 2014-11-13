@@ -9,7 +9,11 @@ class SessionsController < ApplicationController
     @user = User.find_by(username: params[:user][:username])
     if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
-      redirect_to dashboard_path(session[:user_id])
+      if current_user.admin
+        redirect_to admin_dashboard_path
+      else
+        redirect_to dashboard_path(session[:user_id])
+      end
     else
       flash[:notice] = "Login Failed"
       redirect_to signin_path
