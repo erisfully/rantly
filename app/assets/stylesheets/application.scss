@@ -9,7 +9,7 @@ body {
 }
 
 .nav {
-  a:link{
+  a:link {
     color: #ffffff;
   }
   background: #333333;
@@ -354,4 +354,35 @@ a:visited {
   margin: 1.5em;
   width: 8%;
   text-align: center;
+}
+
+.spam-toggle {
+  background: #d3d3d3;
+  border: solid #000000 1px;
+  display: inline;
+  width: 4%;
+  padding: .25em;
+  float: left;
+  a:visited {
+    color: #000000;
+  }
+  a:link {
+    color: #000000;
+  }
+}
+
+.admin-rants {
+  margin: auto;
+  text-align: center;
+  width: 90%;
+}
+
+.filter-button {
+  background: #4682b4;
+  float: right;
+  padding: .25em;
+  width: 8%;
+  margin-top: .5em;
+  font-family: 'Shadows Into Light';
+  font-size: 15px;
 }

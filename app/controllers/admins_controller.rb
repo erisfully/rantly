@@ -18,6 +18,10 @@ class AdminsController < ApplicationController
     end
   end
 
+  def spam
+    @rants = filtered(Rant.where(spam: 't').order(:created_at))
+  end
+
   private
 
   def ensure_admin
@@ -38,6 +42,6 @@ class AdminsController < ApplicationController
     else
         rants.where(:created_at => start_date..end_date)
     end
-
   end
+
 end

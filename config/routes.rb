@@ -28,4 +28,5 @@ Rails.application.routes.draw do
   get '/admin/dashboard' => 'admins#dashboard'
   get '/admin/rants' => 'admins#rants'
   get '/admin/users' => 'admins#users'
+  get '/admin/spam' => 'admins#spam'
 end

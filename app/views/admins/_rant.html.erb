@@ -1,0 +1,30 @@
+<div class="admin-rants">
+<div class="spam-toggle"><%= link_to 'All', admin_rants_path %></div>
+<div class="spam-toggle"><%= link_to 'Spam', admin_spam_path %></div>
+
+
+  <%= form_tag :admin_rants, method: 'get', :class => 'datepicker' do %>
+    <%= text_field_tag :starts_on, nil, :class => 'datepicker' %>
+    To
+    <%= text_field_tag :ends_on, nil, :class => 'datepicker' %>
+    <%= submit_tag "Filter", :class => 'filter-button' %>
+  <% end %>
+</div>
+
+
+<table class="admin-table">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Title</th>
+    <th>Actions</th>
+  </tr>
+  <% @rants.each do |rant| %>
+    <tr>
+      <td><%= rant.user.first_name + " " + rant.user.last_name %></td>
+      <td><%= rant.user.email %></td>
+      <td><%= rant.topic %></td>
+      <td><%= rant.created_at %></td>
+    </tr>
+  <% end %>
+</table>
