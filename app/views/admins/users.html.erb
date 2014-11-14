@@ -1,0 +1,22 @@
+<%= render 'layouts/header' %>
+
+<h1 class="titles">Users</h1>
+
+<table class="admin-table">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Number of Rants</th>
+    <th>Disabled</th>
+    <th>Actions</th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.first_name + " " + user.last_name %></td>
+      <td><%= user.email %></td>
+      <td><%= user.rants.count %></td>
+      <td></td>
+      <td>Disable</td>
+    </tr>
+  <% end %>
+</table>

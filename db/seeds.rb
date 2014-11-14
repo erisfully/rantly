@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+User.create!(username: 'admin', password: 'admin123', first_name: 'Admin', last_name: 'Adminer', bio: 'Admin', frequency: 'monthly', avatar: File.open(File.join(Rails.root, 'app/assets/images/corgi-sunglasses.jpg')), admin: true, email: 'admin@example.com')
+bio

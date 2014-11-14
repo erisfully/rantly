@@ -8,6 +8,10 @@ class AdminsController < ApplicationController
     @rants = Rant.all.order(:created_at)
   end
 
+  def users
+    @users = User.all
+  end
+
   private
 
   def ensure_admin
