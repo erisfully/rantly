@@ -316,3 +316,24 @@ a:visited {
   border: solid #000000 2px;
   margin: .35em;
 }
+
+.rant-table {
+  margin: auto;
+  $light-gray: #efefef;
+  width: 90%;
+  border: solid #000000 1px;
+  th {
+    font-weight: bold;
+    text-align: left;
+    background: #a9a9a9;
+  }
+  td, th {
+    padding: .5em;
+  }
+  tbody {
+    tr:nth-child(odd) td {
+      background: $light-gray;
+    }
+  }
+
+}
