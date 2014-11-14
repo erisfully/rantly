@@ -5,7 +5,7 @@ class AdminsController < ApplicationController
   end
 
   def rants
-    @rants = Rant.all.order(:created_at)
+    @rants = filtered(Rant.order(:created_at))
   end
 
   def users
@@ -24,5 +24,20 @@ class AdminsController < ApplicationController
     unless current_user.admin
       redirect_to root_path
     end
+  end
+
+  def filtered(rants)
+    start_date = params[:starts_on]
+    end_date = params[:ends_on]
+    if start_date == nil && end_date == nil
+     rants
+    elsif end_date == ""
+      rants.where('created_at < ?', start_date)
+    elsif start_date == ""
+      rants.where('created_at > ?', end_date)
+    else
+        rants.where(:created_at => start_date..end_date)
+    end
+
   end
 end
