@@ -9,7 +9,13 @@ class AdminsController < ApplicationController
   end
 
   def users
-    @users = User.all
+    if params[:sort] == 'ASC'
+      @users = User.where(admin: false).sort_by { |user| user.rants.count }.reverse
+    elsif params[:sort] == 'DESC'
+      @users = User.where(admin: false).sort_by { |user| user.rants.count }
+    else
+      @users = User.where(admin: false)
+    end
   end
 
   private

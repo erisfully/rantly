@@ -6,7 +6,11 @@
   <tr>
     <th>Name</th>
     <th>Email</th>
-    <th>Number of Rants</th>
+    <% if params[:sort] == 'ASC' %>
+      <th id="rant-sort"><%= link_to "Number of Rants", :sort => "DESC" %></th>
+    <% else %>
+      <th id="rant-sort"><%= link_to "Number of Rants", :sort => "ASC" %></th>
+    <% end %>
     <th>Disabled</th>
     <th>Actions</th>
   </tr>
