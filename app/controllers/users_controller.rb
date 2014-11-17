@@ -9,6 +9,8 @@ class UsersController < ApplicationController
     @specific_rants = Rant.order('favorites_count DESC')
     @follow = Follow.all
     @favorite = Favorite.all
+    @comment = Comment.new
+    @commentable = User.find(params[:id])
   end
 
   def edit

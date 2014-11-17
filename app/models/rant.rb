@@ -1,7 +1,8 @@
 class Rant < ActiveRecord::Base
   belongs_to :user
   has_many :favorites, dependent: :destroy
-  has_many :comments
+  has_many :comments, as: :commentable, foreign_key: :commentable_id
+
 
   validates :topic, :rant, :user_id, :presence => true
   validates :topic, length: {maximum: 50}
@@ -17,6 +18,6 @@ class Rant < ActiveRecord::Base
       users.last_name = ? OR
       rants.rant LIKE ? OR
       rants.topic LIKE ?',
-      search, search, search, '%' + search + '%', '%' + search + '%')
+           search, search, search, '%' + search + '%', '%' + search + '%')
   end
 end

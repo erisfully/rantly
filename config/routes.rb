@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'register' => 'registrations#new', as: :users
   post '/register' => 'registrations#create'
   resources :users do
+    resources :comments
     resources :follows
     resources :rants do
       resources :comments

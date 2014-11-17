@@ -6,6 +6,7 @@ class RantsController < ApplicationController
     @rant = Rant.new
     @favorites = Favorite.all
     @comment = Comment.new
+    @commentable = Rant.find(params[:id])
   end
 
   def new

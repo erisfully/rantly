@@ -36,4 +36,26 @@
     <% end %>
   </div>
 </div>
+
+  <div class="rants-display">
+    <% @specific_user.comments.each do |comment| %>
+      <div class="rant-and-picture">
+        <div class="col-1-5">
+          <div class="black-links"><%= comment.user.first_name %></div>
+          <div><%= image_tag comment.user.avatar_url(:thumb) %></div>
+        </div>
+        <div class="col-3-4 black-links" style="height: 130px">
+          <%= comment.comment %>
+        </div>
+        <hr width="25%">
+    <% end %>
+    </div>
+  </div>
+
+  <div class="search form col-3-4">
+    <%= form_for [@commentable, @comment] do |f| %>
+      <%= f.text_area :comment, :class => "field", :style => "width:100%" %>
+      <%= f.submit "RANT BACK", :class => "button", :style => "float:right" %>
+    <% end %>
+  </div>
 </div>
