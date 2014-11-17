@@ -23,7 +23,7 @@
         <% end %>
       <%= link_to "Tweet", "http://twitter.com/home?status=A rant about #{@specific_rant.topic}: http://rantlyapp.herokuapp.com/users/#{current_user.id}/rants/#{@specific_rant.id}", :id => "tweet" %>
     </div>
-    <p><%= markdown(@specific_rant.rant) %></p>
+    <p><%= search_hashtag(markdown(@specific_rant.rant)) %></p>
   </div>
   <hr width="25%">
 
