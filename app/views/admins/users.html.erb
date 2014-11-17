@@ -20,7 +20,7 @@
       <td><%= user.email %></td>
       <td><%= user.rants.count %></td>
       <td></td>
-      <td>Disable</td>
+      <td><%= link_to "Disable", disable_path(user.id), :method => "Post" %></td>
     </tr>
   <% end %>
 </table>

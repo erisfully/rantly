@@ -30,4 +30,5 @@ Rails.application.routes.draw do
   get '/admin/rants' => 'admins#rants'
   get '/admin/users' => 'admins#users'
   get '/admin/spam' => 'admins#spam'
+  post '/disable/:id' => 'admins#disable', as: :disable
 end

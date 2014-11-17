@@ -22,6 +22,12 @@ class AdminsController < ApplicationController
     @rants = filtered(Rant.where(spam: 't').order(:created_at))
   end
 
+  def disable
+    @user = User.find(params[:id])
+    @user.update_attribute(:disabled, true)
+    redirect_to :back
+  end
+
   private
 
   def ensure_admin
