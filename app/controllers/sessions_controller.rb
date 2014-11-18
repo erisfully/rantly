@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by(username: params[:user][:username])
     if @user && @user.authenticate(params[:user][:password]) && !@user.disabled && @user.confirmed
+      Keen.publish(:logins, {username: @user.username, date: Time.now}) if Rails.env.production?
       session[:user_id] = @user.id
       if current_user.admin
         redirect_to admin_dashboard_path
