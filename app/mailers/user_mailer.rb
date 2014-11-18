@@ -6,4 +6,10 @@ class UserMailer < ActionMailer::Base
     @url = Rails.env.production? ? 'http://rantlyapp.herokuapp.com/' : 'http://localhost:3000'
     mail(:to => user.email, :subject => "Thanks for registering!")
   end
+
+  def confirmation_email(user)
+    @url = Rails.env.production? ? 'http://rantlyapp.herokuapp.com/' : 'http://localhost:3000'
+    mail(:to => user.email, :subject => "Please confirm your email")
+  end
+
 end
