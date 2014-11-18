@@ -12,7 +12,7 @@ class RegistrationsController < ApplicationController
       UserMailer.confirmation_email(@user).deliver
       session[:user_id] = @user.id
       flash[:notice] = "Thank you for registering! Please confirm your email to sign in!"
-      redirect_to dashboard_path(@user)
+      redirect_to signin_path
     else
       render :new
     end
