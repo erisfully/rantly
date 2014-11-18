@@ -14,4 +14,13 @@ class UserMailer < ActionMailer::Base
     mail(:to => user.email, :subject => "Please confirm your email")
   end
 
+  def follower_email(user, rant)
+    @rant = rant
+    user.follows.each do |followee|
+    @user = followee.user
+    @url = Rails.env.production? ? 'http://rantlyapp.herokuapp.com/' : 'http://localhost:3000'
+    mail(:to => followee.user.email, :subject => "#{followee.user.first_name} Ranted")
+    end
+  end
+
 end

@@ -18,6 +18,7 @@ class RantsController < ApplicationController
     @user = User.find(params[:user_id])
     @rant = Rant.create(rant_params)
     if @rant.save
+      UserMailer.follower_email(current_user, @rant).deliver
       redirect_to dashboard_path(@user)
     else
       flash[:errors] = @rant.errors.full_messages
