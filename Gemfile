@@ -19,7 +19,6 @@ gem 'rmagick', :require => 'RMagick'
 
 gem 'redcarpet'
 
-gem 'dotenv-rails'
 
 group :development, :test do
   gem 'rspec-rails'
@@ -27,6 +26,7 @@ group :development, :test do
   gem 'launchy'
   gem 'pry-byebug'
   gem 'pry-rails'
+  gem 'dotenv-rails'
 end
 
 gem 'bcrypt', '~> 3.1.7'
