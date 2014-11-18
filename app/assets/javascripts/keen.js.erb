@@ -4,10 +4,10 @@ $(document).on('ready', function () {
     readKey: "<%= ENV['KEEN_READ_KEY'] %>"
   });
   Keen.ready(function () {
-    var query = new Keen.Query("count", {
+    var login = new Keen.Query("count", {
       eventCollection: "logins"
     });
-    client.draw(query, document.getElementById("rant_count_chart"), {
+    client.draw(login, document.getElementById("login_count_chart"), {
       chartType: "columnchart",
       title: "Total Logins",
       width: "auto"
