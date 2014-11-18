@@ -26,6 +26,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def confirm
+    @user = User.find_by_confirmation_token(params[:token])
+    if @user
+      @user.update_column(:confirmed, true)
+      redirect_to signin_path, :notice => "Account confirmed"
+    else
+      redirect_to root_path, :notice => "Account could not be confirmed"
+    end
+  end
+
   private
 
   def user_params

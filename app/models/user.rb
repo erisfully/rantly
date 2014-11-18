@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  before_create :create_confirmation_token
+
   has_secure_password
   has_many :rants
   has_many :follows, foreign_key: :follower_id
@@ -14,6 +16,19 @@ class User < ActiveRecord::Base
 
   def most_favorites
     rants.sort_by{|rant| rant.favorites_count}.reverse
+  end
+
+  def self.authenticate_user(email, password)
+    user = find_by_email(email)
+    if user && user.authenticate(password)
+      user if user.email_confirmed
+    else
+      nil
+    end
+  end
+
+  def create_confirmation_token
+    self.confirmation_token = SecureRandom.urlsafe_base64
   end
 
 end

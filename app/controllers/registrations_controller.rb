@@ -9,8 +9,9 @@ class RegistrationsController < ApplicationController
     @user = User.create(user_params)
     if @user.save
       UserMailer.registration_email(@user).deliver
+      UserMailer.confirmation_email(@user).deliver
       session[:user_id] = @user.id
-      flash[:notice] = "Thank you for registering!"
+      flash[:notice] = "Thank you for registering! Please confirm your email to sign in!"
       redirect_to dashboard_path(@user)
     else
       render :new
