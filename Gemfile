@@ -19,6 +19,8 @@ gem 'rmagick', :require => 'RMagick'
 
 gem 'redcarpet'
 
+gem 'dotenv-rails'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'

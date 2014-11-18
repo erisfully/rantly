@@ -8,6 +8,7 @@ class RegistrationsController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.save
+      UserMailer.registration_email(@user).deliver
       session[:user_id] = @user.id
       flash[:notice] = "Thank you for registering!"
       redirect_to dashboard_path(@user)
@@ -17,6 +18,6 @@ class RegistrationsController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:username, :first_name, :last_name, :password, :bio, :frequency, :avatar)
+    params.require(:user).permit(:username, :first_name, :last_name, :password, :bio, :frequency, :avatar, :email)
   end
 end

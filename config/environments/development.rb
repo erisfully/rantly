@@ -14,7 +14,8 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.perform_deliveries = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -37,5 +38,10 @@ Rails.application.configure do
 
   ActionView::Base.field_error_proc = Proc.new do |html_tag, instance|
     html_tag.html_safe
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+    Rails.application.routes.default_url_options[:host] = 'localhost:3000'
+    config.action_mailer.perform_deliveries = true
   end
+
 end

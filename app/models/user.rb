@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :favorites
   has_many :comments, as: :commentable, foreign_key: :commentable_id
 
-  validates :username, :first_name, :last_name, :password, :bio, :frequency, :avatar, :presence => true
+  validates :username, :first_name, :last_name, :password, :bio, :frequency, :avatar, :email, :presence => true
   validates :username, :uniqueness => true
   validates :password, :length => {minimum: 8}
 

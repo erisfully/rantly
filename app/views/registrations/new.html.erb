@@ -28,6 +28,11 @@
     </div>
       <%= f.text_field :last_name, :class => "col-9-10" %>
     </div>
+    <div>
+      <%= f.label 'Email' %>
+      <div class="errors"><%= @user.errors[:email].first %></div>
+      <%= f.text_field :email, :class => "col-9-10" %>
+    </div>
     <div class="bio-field">
       <div>
       <%= f.label 'Bio' %>
