@@ -18,6 +18,7 @@ gem 'carrierwave'
 gem 'rmagick', :require => 'RMagick'
 
 gem 'redcarpet'
+gem 'keen'
 
 
 group :development, :test do
