@@ -28,6 +28,12 @@ class AdminsController < ApplicationController
     redirect_to :back
   end
 
+  def enable
+    @user = User.find(params[:id])
+    @user.update_attribute(:disabled, false)
+    redirect_to :back
+  end
+
   private
 
   def ensure_admin
