@@ -19,6 +19,11 @@
       <td><%= user.first_name + " " + user.last_name %></td>
       <td><%= user.email %></td>
       <td><%= user.rants.count %></td>
+      <% if user.disabled %>
+      <td>Yes</td>
+        <% else %>
+      <td>No</td>
+       <% end %>
       <td></td>
       <% if user.disabled %>
         <td><%= link_to "Enable", enable_path(user.id), :method => "Post" %>
