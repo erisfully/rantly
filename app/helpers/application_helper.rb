@@ -7,7 +7,7 @@ module ApplicationHelper
   def search_hashtag(text)
     new_text = text.split(' ').map do |word|
       if word[0] == '#'
-        "<a href='/search?utf8=✓&search=#{word}&commit=SEARCH'>#{word}</a>"
+        "<a href='/search?utf8=✓&search=23#{word}&commit=SEARCH'>#{word}</a>"
       else
         word
       end
