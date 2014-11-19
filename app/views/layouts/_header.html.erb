@@ -17,6 +17,9 @@
       <li><a class="nav-button" <%= link_to 'Following', user_follows_path(current_user) %></a></li>
       <li><a class="nav-button" <%= link_to 'Favorites', favorites_path(current_user) %></a></li>
       <li><a class="nav-button" <%= link_to 'Search', search_index_path %></a></li>
+      <% if session[:admin_id].present? %>
+        <li class="nav-button"><%= link_to "Unimpersonate", unimpersonate_path %></li>
+      <% end %>
       <li><a class="button" <%= link_to 'LOGOUT', signout_path %></a></li>
     </ul>
   </header>

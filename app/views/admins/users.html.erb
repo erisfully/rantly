@@ -21,10 +21,11 @@
       <td><%= user.rants.count %></td>
       <td></td>
       <% if user.disabled %>
-        <td><%= link_to "Enable", enable_path(user.id), :method => "Post" %></td>
+        <td><%= link_to "Enable", enable_path(user.id), :method => "Post" %>
       <% else %>
-        <td><%= link_to "Disable", disable_path(user.id), :method => "Post" %></td>
+        <td><%= link_to "Disable", disable_path(user.id), :method => "Post" %>
       <% end %>
+      <%= link_to "Impersonate", impersonate_path(user.id) %></td>
     </tr>
   <% end %>
 </table>

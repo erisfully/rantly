@@ -34,10 +34,22 @@ class AdminsController < ApplicationController
     redirect_to :back
   end
 
+  def impersonate
+    session[:admin_id] = current_user.id
+    session[:user_id] = params[:id]
+    redirect_to dashboard_path(session[:user_id])
+  end
+
+  def unimpersonate
+    session[:user_id] = session[:admin_id]
+    session.delete(:admin_id)
+    redirect_to admin_users_path
+  end
+
   private
 
   def ensure_admin
-    unless current_user.admin
+    unless current_user.admin || session[:admin_id]
       redirect_to root_path
     end
   end

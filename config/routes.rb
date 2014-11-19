@@ -32,6 +32,8 @@ Rails.application.routes.draw do
   get '/admin/spam' => 'admins#spam'
   post '/disable/:id' => 'admins#disable', as: :disable
   post '/enable/:id' => 'admins#enable', as: :enable
+  get '/impersonate/:id' => 'admins#impersonate', as: :impersonate
+  get '/unimpersonate' => 'admins#unimpersonate'
 
   get '/confirm_email' => 'users#confirm'
 end
