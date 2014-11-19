@@ -4,13 +4,28 @@ $(document).on('ready', function () {
     readKey: "<%= ENV['KEEN_READ_KEY'] %>"
   });
   Keen.ready(function () {
+
     var login = new Keen.Query("count", {
-      eventCollection: "logins"
+      eventCollection: "logins",
+      timeframe: "this_2_days",
+      interval: "hourly"
     });
     client.draw(login, document.getElementById("login_count_chart"), {
-      chartType: "metric",
+      chartType: "columnchart",
       title: "Total Logins",
       width: "auto"
     });
+
+    var rants_per_day = new Keen.Query("count", {
+      eventCollection: "rants",
+      timeframe: "this_week",
+      interval: "daily"
+    });
+    client.draw(rants_per_day, document.getElementById("rants_per_day_chart"), {
+      chartType: "columnchart",
+      title: "Rants Per Day",
+      width: "auto"
+    });
+
   });
 });

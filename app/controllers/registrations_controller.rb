@@ -8,6 +8,7 @@ class RegistrationsController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.save
+      Keen.publish(:signups, {username: @user.username, date: @user.created_at}) if Rails.env.production?
       UserMailer.registration_email(@user).deliver
       UserMailer.confirmation_email(@user).deliver
       session[:user_id] = @user.id
