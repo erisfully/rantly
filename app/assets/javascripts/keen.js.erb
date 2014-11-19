@@ -27,5 +27,16 @@ $(document).on('ready', function () {
       width: "auto"
     });
 
+    var signups_per_day = new Keen.Query("count", {
+      eventCollection: "signups",
+      timeframe: "this_4_days",
+      interval: "daily"
+    });
+    client.draw(signups_per_day, document.getElementById("signups_per_day_chart"), {
+      chartType: "columnchart",
+      title: "Signups Per Day",
+      width: "auto"
+    });
+
   });
 });
