@@ -24,7 +24,6 @@
         <% else %>
       <td>No</td>
        <% end %>
-      <td></td>
       <% if user.disabled %>
         <td><%= link_to "Enable", enable_path(user.id), :method => "Post" %>
       <% else %>
